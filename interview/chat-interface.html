@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Prep AI - Practice Session</title>
+    <link rel="stylesheet" href="chat-interface.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Header Section -->
+        <div class="chat-header">
+            <button class="back-btn" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="header-content">
+                <div class="chat-avatar">AI</div>
+                <div class="header-text">
+                    <h1 id="session-topic">Practice Session</h1>
+                    <p id="session-subtopic">Selecting questions...</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="action-btn" id="new-session-btn" title="New Session">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <button class="action-btn" id="session-info-btn" title="Session Info">
+                    <i class="fas fa-info-circle"></i>
+                </button>
+                <button class="action-btn" id="help-btn" title="Help">
+                    <i class="fas fa-question-circle"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Chat Messages Area -->
+        <div class="chat-messages" id="chat-messages">
+            <!-- Messages will be dynamically added here -->
+            <div class="message ai-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Welcome to your interview practice session! I'll be asking you questions related to your selected topic. Take your time to think through each answer. Let's begin!</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Input Area -->
+        <div class="chat-input-container">
+            <div class="input-wrapper">
+                <textarea id="message-input" placeholder="Type your answer here..." rows="1"></textarea>
+                <button id="send-btn" class="send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="input-actions">
+                <button class="input-action-btn" id="hint-btn">
+                    <i class="fas fa-lightbulb"></i> Get Hint
+                </button>
+                <button class="input-action-btn" id="skip-btn">
+                    <i class="fas fa-forward"></i> Skip Question
+                </button>
+            </div>
+            
+            <!-- MCQ Options Container (Hidden by default) -->
+            <div class="mcq-options-container" id="mcq-options">
+                <div class="mcq-options-grid" id="mcq-options-grid">
+                    <!-- MCQ options will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Session Info Panel -->
+        <div class="session-info-panel" id="session-info">
+            <div class="panel-header">
+                <h3>Session Information</h3>
+                <button class="close-panel-btn" id="close-panel-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="panel-content">
+                <div class="info-item">
+                    <span class="info-label">Topic:</span>
+                    <span id="info-topic">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Subtopic:</span>
+                    <span id="info-subtopic">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Question Type:</span>
+                    <span id="info-question-type">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Questions Asked:</span>
+                    <span id="info-questions">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Correct Answers:</span>
+                    <span id="info-correct">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Session Time:</span>
+                    <span id="info-time">00:00</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-label">Session Progress</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-text" id="progress-text">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal" id="help-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Interview Prep AI - Help</h2>
+                <button class="close-modal-btn" id="close-help-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3>How to use the practice session:</h3>
+                <ul>
+                    <li><strong>Aptitude Questions:</strong> Select from multiple-choice options or type your answer</li>
+                    <li><strong>Other Topics:</strong> Type your detailed answers in the text area</li>
+                    <li>Use the "Get Hint" button if you need help with a question</li>
+                    <li>Use "Skip Question" to move to the next question</li>
+                    <li>Click the session info button to see your progress</li>
+                    <li>Use "New Session" to start over with different questions</li>
+                </ul>
+                <h3>Tips for effective practice:</h3>
+                <ul>
+                    <li>Think aloud as you would in a real interview</li>
+                    <li>Take your time to formulate complete answers</li>
+                    <li>Review the feedback provided for each answer</li>
+                    <li>Practice regularly to improve your skills</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+     <script src="questions.js"></script>
+    <script src="chat-interface.js"></script>
+</body>
+</html>

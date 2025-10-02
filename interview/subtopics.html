@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Prep AI - Choose Subtopic</title>
+    <link rel="stylesheet" href="subtopics.css">
+</head>
+<body>
+    <div class="container">
+        <div class="subtopics-container">
+            <div class="subtopics-header">
+                <button class="back-btn" onclick="goBack()">← Back</button>
+                <div class="header-content">
+                    <div class="subtopic-avatar">AI</div>
+                    <div class="header-text">
+                        <h1 id="topic-title">Select Subtopic</h1>
+                        <p id="topic-description">Choose a specific area to practice</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="subtopics-grid" id="subtopics-grid">
+                <!-- Subtopics will be dynamically loaded here -->
+            </div>
+            
+            <div class="subtopics-footer">
+                <p>💡 Select a subtopic to start practicing with personalized questions</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="subtopics.js"></script> <!-- This line loads your JavaScript -->
+</body>
+</html>
